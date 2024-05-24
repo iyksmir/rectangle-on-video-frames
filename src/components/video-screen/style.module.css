@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  max-height: 500px;
+}
+
+.videoContainer {
+  position: relative;
+  max-width: 1000px;
+  display: flex;
+  background-color: black;
+}
+
+.timestampContainer {
+  padding: 0 32px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
