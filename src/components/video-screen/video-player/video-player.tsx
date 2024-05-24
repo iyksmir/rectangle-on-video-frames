@@ -2,23 +2,24 @@ import React, { SyntheticEvent } from 'react';
 
 import { IAnalyticEvent } from "../../../types/interfaces";
 
-import analyticsEventsData from "../../../data/analytics-events";
-
 import style from './style.module.css';
 
 const VIDEO_HREF = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
 
 type Props = {
   videoRef: React.RefObject<HTMLVideoElement>,
-  setElemCol: React.Dispatch<React.SetStateAction<IAnalyticEvent[]>>,
+  analyticsEventsData: null | IAnalyticEvent[],
+  setRectangleCol: React.Dispatch<React.SetStateAction<IAnalyticEvent[]>>,
 }
 
-function VideoPlayer({ videoRef, setElemCol }: Props) {
+function VideoPlayer({ videoRef, analyticsEventsData, setRectangleCol }: Props) {
   function onTimeUpdateHandler(e: SyntheticEvent<HTMLVideoElement, Event>) {
-    const { currentTime } = e.currentTarget;
-    const rectanglesInScreenCol = analyticsEventsData
-      .filter((data) => data.timestamp < currentTime && currentTime < data.timestamp + data.duration);
-    setElemCol(rectanglesInScreenCol);
+    if (analyticsEventsData) {
+      const { currentTime } = e.currentTarget;
+      const rectanglesInScreenCol = analyticsEventsData
+        .filter((data) => data.timestamp < currentTime && currentTime < data.timestamp + data.duration);
+      setRectangleCol(rectanglesInScreenCol);
+    }
   }
 
   return (
