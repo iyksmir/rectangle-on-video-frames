@@ -11,7 +11,7 @@ type Props = Pick<IAnalyticEvent, 'timestamp'> & {
 }
 
 function Item({ timestamp, onClickHandler }: Props) {
-  const [humanTimeFormat, setHumanTimeFormat] = useState(convertTimeStampToMSS(timestamp));
+  const [humanTimeFormat] = useState(convertTimeStampToMSS(timestamp));
 
   return (
     <li className={style.item}>

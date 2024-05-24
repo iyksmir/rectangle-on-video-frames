@@ -4,6 +4,8 @@ import Item from "./item/item";
 
 import analyticsEventsData from '../../../data/analytics-events';
 
+import style from './style.module.css';
+
 type Props = {
   videoRef: React.RefObject<HTMLVideoElement>,
 }
@@ -17,7 +19,7 @@ function TimestampList({ videoRef }: Props) {
   }
 
   return (
-    <ul>
+    <ul className={style.list}>
       {analyticsEventsData.map((data) =>
         <Item
           key={data.timestamp}
