@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+# Описание задания 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Есть список событий аналитики с таймстемпами (временем в миллисекундах от начала видео) и данными о зоне в кадре, в которой событие возникло (координаты в пикселях):
+https://run.mocky.io/v3/86ba5ad4-c45e-4f3d-9a07-83ce9a345833
 
-## Available Scripts
+Адрес тестового видеопотока:
+http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
 
-In the project directory, you can run:
+## Необходимо реализовать веб-приложение, обладающее следующим функционалом:
+1. Отображение тестового видео с возможностью постановки на паузу и возобновлением воспроизведения по клику на область видео
+2. Отображения списка событий аналитики с возможностью позиционирования видео на момент, указанный в событии
+3. Список событий должен быть отсортирован по дате возникновения, само событие должно отображаться в списке в виде времени своего возникновения в формате (минуты:секунды:миллисекунды). Пример: 00:03:012, 01:05:123,
+4. В момент возникновения события в плеере поверх видео должен рисоваться зелёный прямоугольник, соответствующий области, определённой в событии. Прямоугольник должен отображаться как при переходе к событию по клику из списка событий, так и в случае обычного воспроизведения и навигации по видео. При наступлении даты окончания события, прямоугольник должен скрываться. Возможна ситуация что одновременно показываются 2 и более прямоугольника.
 
-### `npm start`
+## Что сделано
+1. Стандартный тег <video> позволяет использовать этот функционал из коробки 
+2. Присутствует список таймкодов под видео. Можно кликнуть и видео перемотается на определенный таймод
+3. Список отсортирован, отображается в требуемом формате
+4. Зеленые прямоугольники рисуются во время воспроизведения видео и исчезают по истечению определенного времени
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Требования:
+1. [x] Приложение должно быть написано с использованием TypeScript
+2. [x] Реализация должна использовать React
+3. [x] Решение должно быть опубликовано на GitHub
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Желательно:
+1. Использование redux
+2. Использование redux-saga
+3. Покрытие тестами
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Шаги для запуска:
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. <b>npm install</b> - установка зависимостей
+2. <b>npm run start</b> - старт проекта
